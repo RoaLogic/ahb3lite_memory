@@ -21,7 +21,12 @@ By downloading and/or using or installing products from Roa Logic you automatica
 
 ## 2. LICENSE TO USE
 
-Roa Logic hereby grants you a limited, non-exclusive, no-charge, and royalty-free copyright license to use, modify, and distribute the Product, where such license only applies to those patent claims licensable by Roa Logic. Specifically you are allowed to:
+Roa Logic hereby grants you the following limited, non-exclusive, no-charge, and royalty-free licenses to use, modify, and distribute the Product:
+
+1. Copyright license   
+2. Patent license, where such license only applies to those patent claims licensable by Roa Logic.
+
+Specifically you are allowed to:
 
 1. Use the Product in your design to create, simulate, implement, manufacture, use, and sell a Silicon Device;
 2. Distribute the Product and/or Silicon Device, provided the original disclaimer and copyright notice are retained and this Agreement is part of the distribution.
@@ -44,7 +49,7 @@ ROA LOGIC DISCLAIMS ALL WARRANTIES, CONDITIONS AND REPRESENTATIONS, EXPRESS, IMP
 
 ## 5. LIMITATION OF LIABILITY
 
-TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL ROA LOGIC BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY INDIRECT, SPECIAL, CONSEQUENTIAL OR INCIDENTAL DAMAGES WHATSOEVER (INCLUDING, BUT NOT LIMITED TO, DAMAGES FOR LOSS OF PROFIT, BUSINESS INTERRUPTIONS OR LOSS OF INFORMATION) ARISING OUT OF THE USE OR INABILITY TO USE THE PRODUCT WHETHER BASED ON A CLAIM UNDER CONTRACT, TORT OR OTHER LEGAL THEORY, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL ROA LOGIC BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY INDIRECT, SPECIAL, CONSEQUENTIAL OR INCIDENTAL DAMAGES WHATSOEVER (INCLUDING, BUT NOT LIMITED TO, DAMAGES FOR LOSS OF PROFIT, BUSINESS INTERRUPTIONS OR LOSS OF INFORMATION) ARISING OUT OF THE USE OR INABILITY TO USE THE PRODUCT WHETHER BASED ON A CLAIM UNDER CONTRACT, TORT OR OTHER LEGAL THEORY, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.  
 
 ## 6. APPLICABLE LAW AND CHOICE OF FORUM
 
