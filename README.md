@@ -8,4 +8,4 @@ This release requires the
 
 
 ## License
-Released under the RoaLogic Non-Commercial license
+Released under the RoaLogic BSD license
