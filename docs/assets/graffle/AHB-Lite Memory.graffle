@@ -28,7 +28,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2017-10-07 06:52:18 +0000</string>
+	<string>2017-10-07 22:46:16 +0000</string>
 	<key>Modifier</key>
 	<string>Paul Hardy</string>
 	<key>MovementHandleVisible</key>
@@ -91,7 +91,7 @@
 			<key>BackgroundGraphic</key>
 			<dict>
 				<key>Bounds</key>
-				<string>{{-439, -297}, {1128, 875}}</string>
+				<string>{{-918.81632653061206, -631.0612244897959}, {2520.408163265306, 1546.9387755102039}}</string>
 				<key>Class</key>
 				<string>GraffleShapes.CanvasBackgroundGraphic</string>
 				<key>ID</key>
@@ -113,11 +113,11 @@
 			<key>BaseZoom</key>
 			<integer>0</integer>
 			<key>CanvasDimensionsOrigin</key>
-			<string>{22.984251912588235, 23.489626035103893}</string>
+			<string>{22.984251912588235, 22.480682617895891}</string>
 			<key>CanvasOrigin</key>
 			<string>{0, 0}</string>
 			<key>CanvasSize</key>
-			<string>{204.28739714112808, 234.42519569396973}</string>
+			<string>{637.84645643022145, 240.43413911117773}</string>
 			<key>CanvasSizingMode</key>
 			<integer>2</integer>
 			<key>ColumnAlign</key>
@@ -128,6 +128,1502 @@
 			<string>1.0000 cm = 10.0000 mm</string>
 			<key>GraphicsList</key>
 			<array>
+				<dict>
+					<key>Bounds</key>
+					<string>{{572.29133875967966, 28.346455894117383}, {85.039369583129883, 226.77164715293821}}</string>
+					<key>Class</key>
+					<string>ShapedGraphic</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Size</key>
+						<real>12</real>
+					</dict>
+					<key>ID</key>
+					<integer>60</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Color</key>
+							<dict>
+								<key>b</key>
+								<real>0.93533999999999995</real>
+								<key>g</key>
+								<real>0.87453899999999996</real>
+								<key>r</key>
+								<real>0.82890399999999997</real>
+								<key>space</key>
+								<string>srgb</string>
+							</dict>
+							<key>FillType</key>
+							<integer>2</integer>
+							<key>GradientAngle</key>
+							<real>44</real>
+							<key>GradientColor</key>
+							<dict>
+								<key>b</key>
+								<string>0.929412</string>
+								<key>g</key>
+								<string>0.556863</string>
+								<key>r</key>
+								<string>0.227451</string>
+								<key>space</key>
+								<string>srgb</string>
+							</dict>
+							<key>MiddleFraction</key>
+							<real>0.63</real>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Beneath</key>
+							<string>YES</string>
+						</dict>
+					</dict>
+					<key>Text</key>
+					<dict>
+						<key>Text</key>
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1561
+{\fonttbl\f0\fnil\fcharset0 Calibri;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc\partightenfactor0
+
+\f0\fs24 \cf0 AHB-Lite\
+Memory}</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>Bounds</key>
+					<string>{{477.54331120168126, 228.91482172907362}, {37, 23}}</string>
+					<key>Class</key>
+					<string>ShapedGraphic</string>
+					<key>FitText</key>
+					<string>YES</string>
+					<key>Flow</key>
+					<string>Resize</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Calibri</string>
+						<key>Size</key>
+						<real>10</real>
+					</dict>
+					<key>ID</key>
+					<integer>59</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+					</dict>
+					<key>Text</key>
+					<dict>
+						<key>Text</key>
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1561
+{\fonttbl\f0\fnil\fcharset0 Calibri;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\deftab720
+\pard\pardeftab720\qc\partightenfactor0
+
+\f0\fs20 \cf0 HRESP}</string>
+					</dict>
+					<key>Wrap</key>
+					<string>NO</string>
+				</dict>
+				<dict>
+					<key>AllowLabelDrop</key>
+					<false/>
+					<key>Class</key>
+					<string>LineGraphic</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Helvetica</string>
+						<key>Size</key>
+						<real>12</real>
+					</dict>
+					<key>ID</key>
+					<integer>58</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Points</key>
+					<array>
+						<string>{515.92716648068017, 239.91482172907362}</string>
+						<string>{572.62007953610043, 239.91482172907362}</string>
+					</array>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Beneath</key>
+							<string>YES</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>HeadArrow</key>
+							<string>FilledArrow</string>
+							<key>HeadScale</key>
+							<real>1.2</real>
+							<key>Legacy</key>
+							<true/>
+							<key>TailArrow</key>
+							<string>0</string>
+							<key>TailScale</key>
+							<real>1.2</real>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>Bounds</key>
+					<string>{{470.54331120168126, 214.74159346521864}, {44, 23}}</string>
+					<key>Class</key>
+					<string>ShapedGraphic</string>
+					<key>FitText</key>
+					<string>YES</string>
+					<key>Flow</key>
+					<string>Resize</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Calibri</string>
+						<key>Size</key>
+						<real>10</real>
+					</dict>
+					<key>ID</key>
+					<integer>57</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+					</dict>
+					<key>Text</key>
+					<dict>
+						<key>Text</key>
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1561
+{\fonttbl\f0\fnil\fcharset0 Calibri;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\deftab720
+\pard\pardeftab720\qc\partightenfactor0
+
+\f0\fs20 \cf0 HREADY}</string>
+					</dict>
+					<key>Wrap</key>
+					<string>NO</string>
+				</dict>
+				<dict>
+					<key>AllowLabelDrop</key>
+					<false/>
+					<key>Class</key>
+					<string>LineGraphic</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Helvetica</string>
+						<key>Size</key>
+						<real>12</real>
+					</dict>
+					<key>ID</key>
+					<integer>56</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Points</key>
+					<array>
+						<string>{515.92716648068017, 225.74159346521864}</string>
+						<string>{572.62007953610043, 225.74159346521864}</string>
+					</array>
+					<key>Rotation</key>
+					<real>15.331096932291985</real>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Beneath</key>
+							<string>YES</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>HeadArrow</key>
+							<string>FilledArrow</string>
+							<key>HeadScale</key>
+							<real>1.2</real>
+							<key>Legacy</key>
+							<true/>
+							<key>TailArrow</key>
+							<string>0</string>
+							<key>TailScale</key>
+							<real>1.2</real>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>Bounds</key>
+					<string>{{453.54331120168126, 200.56836520136366}, {61, 23}}</string>
+					<key>Class</key>
+					<string>ShapedGraphic</string>
+					<key>FitText</key>
+					<string>YES</string>
+					<key>Flow</key>
+					<string>Resize</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Calibri</string>
+						<key>Size</key>
+						<real>10</real>
+					</dict>
+					<key>ID</key>
+					<integer>55</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+					</dict>
+					<key>Text</key>
+					<dict>
+						<key>Text</key>
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1561
+{\fonttbl\f0\fnil\fcharset0 Calibri;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\deftab720
+\pard\pardeftab720\qc\partightenfactor0
+
+\f0\fs20 \cf0 HREADYOUT}</string>
+					</dict>
+					<key>Wrap</key>
+					<string>NO</string>
+				</dict>
+				<dict>
+					<key>AllowLabelDrop</key>
+					<false/>
+					<key>Class</key>
+					<string>LineGraphic</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Helvetica</string>
+						<key>Size</key>
+						<real>12</real>
+					</dict>
+					<key>ID</key>
+					<integer>54</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Points</key>
+					<array>
+						<string>{515.92716648068017, 211.56836520136366}</string>
+						<string>{570.9271664806804, 211.56836520136366}</string>
+					</array>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Beneath</key>
+							<string>YES</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>HeadArrow</key>
+							<string>0</string>
+							<key>HeadScale</key>
+							<real>1.2</real>
+							<key>Legacy</key>
+							<true/>
+							<key>TailArrow</key>
+							<string>FilledArrow</string>
+							<key>TailScale</key>
+							<real>1.2</real>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>Bounds</key>
+					<string>{{476.54331120168126, 171.2219086736537}, {38, 23}}</string>
+					<key>Class</key>
+					<string>ShapedGraphic</string>
+					<key>FitText</key>
+					<string>YES</string>
+					<key>Flow</key>
+					<string>Resize</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Calibri</string>
+						<key>Size</key>
+						<real>10</real>
+					</dict>
+					<key>ID</key>
+					<integer>53</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+					</dict>
+					<key>Text</key>
+					<dict>
+						<key>Text</key>
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1561
+{\fonttbl\f0\fnil\fcharset0 Calibri;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\deftab720
+\pard\pardeftab720\qc\partightenfactor0
+
+\f0\fs20 \cf0 HPROT}</string>
+					</dict>
+					<key>Wrap</key>
+					<string>NO</string>
+				</dict>
+				<dict>
+					<key>AllowLabelDrop</key>
+					<false/>
+					<key>Class</key>
+					<string>LineGraphic</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Helvetica</string>
+						<key>Size</key>
+						<real>12</real>
+					</dict>
+					<key>ID</key>
+					<integer>52</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Points</key>
+					<array>
+						<string>{515.92716648068017, 183.2219086736537}</string>
+						<string>{572.62007953610032, 183.2219086736537}</string>
+					</array>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Beneath</key>
+							<string>YES</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>HeadArrow</key>
+							<string>FilledArrow</string>
+							<key>HeadScale</key>
+							<real>0.5</real>
+							<key>Legacy</key>
+							<true/>
+							<key>TailArrow</key>
+							<string>0</string>
+							<key>TailScale</key>
+							<real>0.5</real>
+							<key>Width</key>
+							<real>3</real>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>Bounds</key>
+					<string>{{471.54331120168126, 158.04868040979872}, {43, 23}}</string>
+					<key>Class</key>
+					<string>ShapedGraphic</string>
+					<key>FitText</key>
+					<string>YES</string>
+					<key>Flow</key>
+					<string>Resize</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Calibri</string>
+						<key>Size</key>
+						<real>10</real>
+					</dict>
+					<key>ID</key>
+					<integer>51</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+					</dict>
+					<key>Text</key>
+					<dict>
+						<key>Text</key>
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1561
+{\fonttbl\f0\fnil\fcharset0 Calibri;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\deftab720
+\pard\pardeftab720\qc\partightenfactor0
+
+\f0\fs20 \cf0 HBURST}</string>
+					</dict>
+					<key>Wrap</key>
+					<string>NO</string>
+				</dict>
+				<dict>
+					<key>AllowLabelDrop</key>
+					<false/>
+					<key>Class</key>
+					<string>LineGraphic</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Helvetica</string>
+						<key>Size</key>
+						<real>12</real>
+					</dict>
+					<key>ID</key>
+					<integer>50</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Points</key>
+					<array>
+						<string>{515.92716648068017, 169.04868040979872}</string>
+						<string>{572.62007953610032, 169.04868040979872}</string>
+					</array>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Beneath</key>
+							<string>YES</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>HeadArrow</key>
+							<string>FilledArrow</string>
+							<key>HeadScale</key>
+							<real>0.5</real>
+							<key>Legacy</key>
+							<true/>
+							<key>TailArrow</key>
+							<string>0</string>
+							<key>TailScale</key>
+							<real>0.5</real>
+							<key>Width</key>
+							<real>3</real>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>Bounds</key>
+					<string>{{481.54331120168126, 143.87545214594374}, {33, 23}}</string>
+					<key>Class</key>
+					<string>ShapedGraphic</string>
+					<key>FitText</key>
+					<string>YES</string>
+					<key>Flow</key>
+					<string>Resize</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Calibri</string>
+						<key>Size</key>
+						<real>10</real>
+					</dict>
+					<key>ID</key>
+					<integer>49</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+					</dict>
+					<key>Text</key>
+					<dict>
+						<key>Text</key>
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1561
+{\fonttbl\f0\fnil\fcharset0 Calibri;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\deftab720
+\pard\pardeftab720\qc\partightenfactor0
+
+\f0\fs20 \cf0 HSIZE}</string>
+					</dict>
+					<key>Wrap</key>
+					<string>NO</string>
+				</dict>
+				<dict>
+					<key>AllowLabelDrop</key>
+					<false/>
+					<key>Class</key>
+					<string>LineGraphic</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Helvetica</string>
+						<key>Size</key>
+						<real>12</real>
+					</dict>
+					<key>ID</key>
+					<integer>48</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Points</key>
+					<array>
+						<string>{515.92716648068017, 154.87545214594374}</string>
+						<string>{572.62007953610032, 154.87545214594374}</string>
+					</array>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Beneath</key>
+							<string>YES</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>HeadArrow</key>
+							<string>FilledArrow</string>
+							<key>HeadScale</key>
+							<real>0.5</real>
+							<key>Legacy</key>
+							<true/>
+							<key>TailArrow</key>
+							<string>0</string>
+							<key>TailScale</key>
+							<real>0.5</real>
+							<key>Width</key>
+							<real>3</real>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>Bounds</key>
+					<string>{{471.54331120168126, 129.70222388208876}, {43, 23}}</string>
+					<key>Class</key>
+					<string>ShapedGraphic</string>
+					<key>FitText</key>
+					<string>YES</string>
+					<key>Flow</key>
+					<string>Resize</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Calibri</string>
+						<key>Size</key>
+						<real>10</real>
+					</dict>
+					<key>ID</key>
+					<integer>47</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+					</dict>
+					<key>Text</key>
+					<dict>
+						<key>Text</key>
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1561
+{\fonttbl\f0\fnil\fcharset0 Calibri;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\deftab720
+\pard\pardeftab720\qc\partightenfactor0
+
+\f0\fs20 \cf0 HWRITE}</string>
+					</dict>
+					<key>Wrap</key>
+					<string>NO</string>
+				</dict>
+				<dict>
+					<key>AllowLabelDrop</key>
+					<false/>
+					<key>Class</key>
+					<string>LineGraphic</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Helvetica</string>
+						<key>Size</key>
+						<real>12</real>
+					</dict>
+					<key>ID</key>
+					<integer>46</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Points</key>
+					<array>
+						<string>{515.92716648068017, 140.70222388208876}</string>
+						<string>{572.62007953610032, 140.70222388208876}</string>
+					</array>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Beneath</key>
+							<string>YES</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>HeadArrow</key>
+							<string>FilledArrow</string>
+							<key>HeadScale</key>
+							<real>1.2</real>
+							<key>Legacy</key>
+							<true/>
+							<key>TailArrow</key>
+							<string>0</string>
+							<key>TailScale</key>
+							<real>1.2</real>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>Bounds</key>
+					<string>{{471.54331120168126, 115.52899561823378}, {43, 23}}</string>
+					<key>Class</key>
+					<string>ShapedGraphic</string>
+					<key>FitText</key>
+					<string>YES</string>
+					<key>Flow</key>
+					<string>Resize</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Calibri</string>
+						<key>Size</key>
+						<real>10</real>
+					</dict>
+					<key>ID</key>
+					<integer>45</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+					</dict>
+					<key>Text</key>
+					<dict>
+						<key>Text</key>
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1561
+{\fonttbl\f0\fnil\fcharset0 Calibri;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\deftab720
+\pard\pardeftab720\qc\partightenfactor0
+
+\f0\fs20 \cf0 HRDATA}</string>
+					</dict>
+					<key>Wrap</key>
+					<string>NO</string>
+				</dict>
+				<dict>
+					<key>AllowLabelDrop</key>
+					<false/>
+					<key>Class</key>
+					<string>LineGraphic</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Helvetica</string>
+						<key>Size</key>
+						<real>12</real>
+					</dict>
+					<key>ID</key>
+					<integer>44</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Points</key>
+					<array>
+						<string>{515.92716648068017, 126.52899561823378}</string>
+						<string>{572.62007953610043, 126.52899561823378}</string>
+					</array>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Beneath</key>
+							<string>YES</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>HeadArrow</key>
+							<string>0</string>
+							<key>HeadScale</key>
+							<real>0.5</real>
+							<key>Legacy</key>
+							<true/>
+							<key>TailArrow</key>
+							<string>FilledArrow</string>
+							<key>TailScale</key>
+							<real>0.5</real>
+							<key>Width</key>
+							<real>3</real>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>Bounds</key>
+					<string>{{467.54331120168126, 101.3557673543788}, {47, 23}}</string>
+					<key>Class</key>
+					<string>ShapedGraphic</string>
+					<key>FitText</key>
+					<string>YES</string>
+					<key>Flow</key>
+					<string>Resize</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Calibri</string>
+						<key>Size</key>
+						<real>10</real>
+					</dict>
+					<key>ID</key>
+					<integer>43</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+					</dict>
+					<key>Text</key>
+					<dict>
+						<key>Text</key>
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1561
+{\fonttbl\f0\fnil\fcharset0 Calibri;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\deftab720
+\pard\pardeftab720\qc\partightenfactor0
+
+\f0\fs20 \cf0 HWDATA}</string>
+					</dict>
+					<key>Wrap</key>
+					<string>NO</string>
+				</dict>
+				<dict>
+					<key>AllowLabelDrop</key>
+					<false/>
+					<key>Class</key>
+					<string>LineGraphic</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Helvetica</string>
+						<key>Size</key>
+						<real>12</real>
+					</dict>
+					<key>ID</key>
+					<integer>42</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Points</key>
+					<array>
+						<string>{515.92716648068017, 112.3557673543788}</string>
+						<string>{572.62007953610032, 112.3557673543788}</string>
+					</array>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Beneath</key>
+							<string>YES</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>HeadArrow</key>
+							<string>FilledArrow</string>
+							<key>HeadScale</key>
+							<real>0.5</real>
+							<key>Legacy</key>
+							<true/>
+							<key>TailArrow</key>
+							<string>0</string>
+							<key>TailScale</key>
+							<real>0.5</real>
+							<key>Width</key>
+							<real>3</real>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>Bounds</key>
+					<string>{{474.54331120168126, 87.160486315855195}, {40, 23}}</string>
+					<key>Class</key>
+					<string>ShapedGraphic</string>
+					<key>FitText</key>
+					<string>YES</string>
+					<key>Flow</key>
+					<string>Resize</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Calibri</string>
+						<key>Size</key>
+						<real>10</real>
+					</dict>
+					<key>ID</key>
+					<integer>41</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+					</dict>
+					<key>Text</key>
+					<dict>
+						<key>Text</key>
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1561
+{\fonttbl\f0\fnil\fcharset0 Calibri;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\deftab720
+\pard\pardeftab720\qc\partightenfactor0
+
+\f0\fs20 \cf0 HADDR}</string>
+					</dict>
+					<key>Wrap</key>
+					<string>NO</string>
+				</dict>
+				<dict>
+					<key>AllowLabelDrop</key>
+					<false/>
+					<key>Class</key>
+					<string>LineGraphic</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Helvetica</string>
+						<key>Size</key>
+						<real>12</real>
+					</dict>
+					<key>ID</key>
+					<integer>40</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Points</key>
+					<array>
+						<string>{515.92716648068017, 98.182539090523818}</string>
+						<string>{572.62007953610032, 98.182539090523818}</string>
+					</array>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Beneath</key>
+							<string>YES</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>HeadArrow</key>
+							<string>FilledArrow</string>
+							<key>HeadScale</key>
+							<real>0.5</real>
+							<key>Legacy</key>
+							<true/>
+							<key>TailArrow</key>
+							<string>0</string>
+							<key>TailScale</key>
+							<real>0.5</real>
+							<key>Width</key>
+							<real>3</real>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>Bounds</key>
+					<string>{{470.54331120168126, 73.009310826668838}, {44, 23}}</string>
+					<key>Class</key>
+					<string>ShapedGraphic</string>
+					<key>FitText</key>
+					<string>YES</string>
+					<key>Flow</key>
+					<string>Resize</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Calibri</string>
+						<key>Size</key>
+						<real>10</real>
+					</dict>
+					<key>ID</key>
+					<integer>39</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+					</dict>
+					<key>Text</key>
+					<dict>
+						<key>Text</key>
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1561
+{\fonttbl\f0\fnil\fcharset0 Calibri;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\deftab720
+\pard\pardeftab720\qc\partightenfactor0
+
+\f0\fs20 \cf0 HTRANS}</string>
+					</dict>
+					<key>Wrap</key>
+					<string>NO</string>
+				</dict>
+				<dict>
+					<key>AllowLabelDrop</key>
+					<false/>
+					<key>Class</key>
+					<string>LineGraphic</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Helvetica</string>
+						<key>Size</key>
+						<real>12</real>
+					</dict>
+					<key>ID</key>
+					<integer>38</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Points</key>
+					<array>
+						<string>{515.92716648068017, 84.009310826668838}</string>
+						<string>{572.62007953610032, 84.009310826668838}</string>
+					</array>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Beneath</key>
+							<string>YES</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>HeadArrow</key>
+							<string>FilledArrow</string>
+							<key>HeadScale</key>
+							<real>0.5</real>
+							<key>Legacy</key>
+							<true/>
+							<key>TailArrow</key>
+							<string>0</string>
+							<key>TailScale</key>
+							<real>0.5</real>
+							<key>Width</key>
+							<real>3</real>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>Bounds</key>
+					<string>{{484.54331120168126, 57.814029788145241}, {30, 23}}</string>
+					<key>Class</key>
+					<string>ShapedGraphic</string>
+					<key>FitText</key>
+					<string>YES</string>
+					<key>Flow</key>
+					<string>Resize</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Calibri</string>
+						<key>Size</key>
+						<real>10</real>
+					</dict>
+					<key>ID</key>
+					<integer>37</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+					</dict>
+					<key>Text</key>
+					<dict>
+						<key>Text</key>
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1561
+{\fonttbl\f0\fnil\fcharset0 Calibri;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\deftab720
+\pard\pardeftab720\qc\partightenfactor0
+
+\f0\fs20 \cf0 HSEL}</string>
+					</dict>
+					<key>Wrap</key>
+					<string>NO</string>
+				</dict>
+				<dict>
+					<key>AllowLabelDrop</key>
+					<false/>
+					<key>Class</key>
+					<string>LineGraphic</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Helvetica</string>
+						<key>Size</key>
+						<real>12</real>
+					</dict>
+					<key>ID</key>
+					<integer>36</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Points</key>
+					<array>
+						<string>{515.92716648068017, 69.836082562813857}</string>
+						<string>{572.62007953610032, 69.836082562813857}</string>
+					</array>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Beneath</key>
+							<string>YES</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>HeadArrow</key>
+							<string>FilledArrow</string>
+							<key>HeadScale</key>
+							<real>1.2</real>
+							<key>Legacy</key>
+							<true/>
+							<key>TailArrow</key>
+							<string>0</string>
+							<key>TailScale</key>
+							<real>1.2</real>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>Bounds</key>
+					<string>{{483.54331120168126, 30.445520485766679}, {31, 23}}</string>
+					<key>Class</key>
+					<string>ShapedGraphic</string>
+					<key>FitText</key>
+					<string>YES</string>
+					<key>Flow</key>
+					<string>Resize</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Calibri</string>
+						<key>Size</key>
+						<real>10</real>
+					</dict>
+					<key>ID</key>
+					<integer>35</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+					</dict>
+					<key>Text</key>
+					<dict>
+						<key>Text</key>
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1561
+{\fonttbl\f0\fnil\fcharset0 Calibri;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\deftab720
+\pard\pardeftab720\qc\partightenfactor0
+
+\f0\fs20 \cf0 HCLK}</string>
+					</dict>
+					<key>Wrap</key>
+					<string>NO</string>
+				</dict>
+				<dict>
+					<key>AllowLabelDrop</key>
+					<false/>
+					<key>Class</key>
+					<string>LineGraphic</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Helvetica</string>
+						<key>Size</key>
+						<real>12</real>
+					</dict>
+					<key>ID</key>
+					<integer>34</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Points</key>
+					<array>
+						<string>{515.92716648068017, 41.445520485766679}</string>
+						<string>{572.62007953610043, 41.489626035103896}</string>
+					</array>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Beneath</key>
+							<string>YES</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>HeadArrow</key>
+							<string>FilledArrow</string>
+							<key>HeadScale</key>
+							<real>1.2</real>
+							<key>Legacy</key>
+							<true/>
+							<key>TailArrow</key>
+							<string>0</string>
+							<key>TailScale</key>
+							<real>1.2</real>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>Bounds</key>
+					<string>{{468.54331120168126, 44.662854298958877}, {46, 23}}</string>
+					<key>Class</key>
+					<string>ShapedGraphic</string>
+					<key>FitText</key>
+					<string>YES</string>
+					<key>Flow</key>
+					<string>Resize</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Calibri</string>
+						<key>Size</key>
+						<real>10</real>
+					</dict>
+					<key>ID</key>
+					<integer>33</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+					</dict>
+					<key>Text</key>
+					<dict>
+						<key>Text</key>
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1561
+{\fonttbl\f0\fnil\fcharset0 Calibri;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\deftab720
+\pard\pardeftab720\qc\partightenfactor0
+
+\f0\fs20 \cf0 HRESETn}</string>
+					</dict>
+					<key>Wrap</key>
+					<string>NO</string>
+				</dict>
+				<dict>
+					<key>AllowLabelDrop</key>
+					<false/>
+					<key>Class</key>
+					<string>LineGraphic</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Helvetica</string>
+						<key>Size</key>
+						<real>12</real>
+					</dict>
+					<key>ID</key>
+					<integer>32</integer>
+					<key>Layer</key>
+					<integer>0</integer>
+					<key>Points</key>
+					<array>
+						<string>{515.92716648068017, 55.662854298958877}</string>
+						<string>{572.62007953610032, 55.662854298958877}</string>
+					</array>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Beneath</key>
+							<string>YES</string>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>HeadArrow</key>
+							<string>FilledArrow</string>
+							<key>HeadScale</key>
+							<real>1.2</real>
+							<key>Legacy</key>
+							<true/>
+							<key>TailArrow</key>
+							<string>0</string>
+							<key>TailScale</key>
+							<real>1.2</real>
+						</dict>
+					</dict>
+				</dict>
 				<dict>
 					<key>Bounds</key>
 					<string>{{141.73227947058643, 28.346455894117383}, {85.039369583129883, 226.77164715293821}}</string>
@@ -1631,7 +3127,7 @@ Memory}</string>
 				<string>YES</string>
 			</dict>
 			<key>HPages</key>
-			<integer>1</integer>
+			<integer>2</integer>
 			<key>HorizontalGuides</key>
 			<array>
 				<real>0.0</real>
@@ -1715,7 +3211,7 @@ Memory}</string>
 			<key>BackgroundGraphic</key>
 			<dict>
 				<key>Bounds</key>
-				<string>{{-406.0202977714884, -257.87309172858181}, {1164.9746023704618, 793.40100370589596}}</string>
+				<string>{{-406.02029777148823, -257.87309172858187}, {1164.9746023704615, 793.40100370589607}}</string>
 				<key>Class</key>
 				<string>GraffleShapes.CanvasBackgroundGraphic</string>
 				<key>ID</key>
@@ -2141,7 +3637,7 @@ Memory}</string>
 			<key>BackgroundGraphic</key>
 			<dict>
 				<key>Bounds</key>
-				<string>{{-409.02029777148829, -258.87309172858181}, {1170.5583586345467, 799.49237417580696}}</string>
+				<string>{{-409.02029777148823, -258.87309172858187}, {1170.5583586345465, 799.49237417580684}}</string>
 				<key>Class</key>
 				<string>GraffleShapes.CanvasBackgroundGraphic</string>
 				<key>ID</key>
@@ -2624,12 +4120,12 @@ Memory}</string>
 		<key>Sidebar_Tab</key>
 		<integer>0</integer>
 		<key>VisibleRegion</key>
-		<string>{{22, 23}, {461, 320}}</string>
+		<string>{{-219.83673469387745, -142.79591836734696}, {940.81632653061217, 653.0612244897959}}</string>
 		<key>ZoomValues</key>
 		<array>
 			<array>
 				<string>Signal Diagram</string>
-				<real>2</real>
+				<real>0.98000000000000009</real>
 				<real>1</real>
 			</array>
 			<array>
@@ -2651,7 +4147,7 @@ Memory}</string>
 	<key>createSinglePDFKey</key>
 	<false/>
 	<key>exportAreaKey</key>
-	<integer>4</integer>
+	<integer>3</integer>
 	<key>exportQualityKey</key>
 	<real>100</real>
 	<key>exportSizesKey</key>
