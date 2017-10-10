@@ -217,34 +217,6 @@ All implementations are push button, no effort has been undertaken to reduce are
 |          |     |             |        |                   |
 |          |     |             |        |                   |
 
-Technology Support
-==================
-
-Physical memory implementation in silicon depends on the target technology chosen. The AHB-Lite Memory IP allows a designer to specify either a generic (i.e. behavioural) implementation or one of multiple technology-specific implementations via the TECHNOLOGY parameter. This section provides details of these implementations
-
-GENERIC Implementation
-----------------------
-
-The GENERIC option is used to implement regular behavioural HDL allowing both the physical implementation to be controlled during hardware synthesis and full behavioural simulation to be performed.
-
-eASIC Structured ASIC Support
------------------------------
-
-The IP supports the Nextreme-3 and Nextreme-3S families as described below. Please refer to the relevant technology datasheets for complete details of the memory structures referenced.
-
-### Nextreme-3 Implementation (N3X)
-
-The Nextreme-3 family of devices features 9Kbit memory blocks, referred to as ‘bRAM’. When the TECHNOLOGY parameter is defined as ‘N3X’, all memory will be implemented using 9Kbit bRAM cells.
-
-### Nextreme-3S Implementation (N3XS)
-
-The Nextreme-3S series of devices features separate 2Kbit and 18Kbit memory blocks, referred to as ‘bRAM2K’ and ‘bRAM18K’ respectively. The choice of which of these blocks are implemented when the TECHNOLOGY parameter is defined as ‘N3XS’ is as follows:
-
-| TECHNOLOGY | Memory Size   | Implementation      |
-|:-----------|:--------------|:--------------------|
-| N3XS       | ≤4096 bits    | bRAM2K blocks only  |
-| N3XS       | &gt;4096 bits | bRAM18K blocks only |
-
 References
 ==========
 
