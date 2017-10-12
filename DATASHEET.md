@@ -4,8 +4,16 @@ category: Datasheet
 author: Roa Logic
 ---
 
-Introduction
-============
+-   [Introduction](#introduction)
+-   [Functional Description](#functional-description)
+-   [Configurations](#configurations)
+-   [Interfaces](#interfaces)
+-   [Resources](#resources)
+-   [Technology Support](#technology-support)
+-   [References](#references)
+-   [Revision History](#revision-history)
+
+## Introduction
 
 The Roa Logic AHB-Lite Memory IP is a fully parameterized soft IP implementing on-chip memory for access by an AHB-Lite based Master. All signals defined in the *AMBA 3 AHB-Lite v1.0* specifications are fully supported.
 
@@ -13,8 +21,7 @@ The IP supports a single AHB-Lite based host connection and enables address & da
 
 ![AHB-Lite Memory System<span data-label="fig:ahb-lite-memory-sysdiag"></span>](assets/img/AHB-Lite-Memory-SysDiag.png)
 
-Features
---------
+### Features
 
 -   Full support for AMBA 3 AHB-Lite protocol
 
@@ -28,8 +35,7 @@ Features
 
 -   Combinatorial or registered data output
 
-Functional Description
-======================
+## Functional Description
 
 The AHB-Lite Memory IP is a flexible, fully configurable, IP that enables designers to attach internal device memory to AHB-Lite based host. The width and depth of the memory, together with an optional registered output stage, are specified via parameters.
 
@@ -37,21 +43,17 @@ The AHB-Lite Memory IP is a flexible, fully configurable, IP that enables design
 
 The IP is designed to easily support a wide range of target technologies, automatically implementing technology-specific memory cells according to the chosen target. A generic behavioural implementation is also supported.
 
-AHB-Lite Bus Locking Support
-----------------------------
+### AHB-Lite Bus Locking Support
 
 The *AMBA 3 AHB-Lite v1.0* protocol supports bus locking. Typically a locked transfer is used to ensure that a slave does not perform other operations between the read and write phases of a transaction. Given the AHB-Lite Memory IP performs no such operations, bus locking is not supported and does not provide the `HMASTLOCK` input associated with this capability
 
-Configurations
-==============
+## Configurations
 
-Introduction
-------------
+### Introduction
 
 The size and implementation style of the memory is defined via HDL parameters. These are specified in the following section.
 
-Core Parameters
----------------
+### Core Parameters
 
 | Parameter           | Type    | Default | Description               |
 |:--------------------|:--------|:-------:|:--------------------------|
@@ -61,19 +63,19 @@ Core Parameters
 | `TECHNOLOGY`        | String  | GENERIC | Implementation Technology |
 | `REGISTERED_OUTPUT` | String  |    NO   | Is output registered?     |
 
-### MEM\_DEPTH
+#### MEM\_DEPTH
 
 `MEM_DEPTH` defines the depth of the memory – i.e. number of `HDATA_SIZE` words to be stored. The maximum depth supported is dependent upon the target technology chosen.
 
-### HADDR\_SIZE
+#### HADDR\_SIZE
 
 The `HADDR_SIZE` parameter specifies the address bus size to connect to the AHB-Lite based host. The maximum size supported is 32 bits.
 
-### HDATA\_SIZE
+#### HDATA\_SIZE
 
 The `HDATA_SIZE` parameter specifies the data bus size to connect to the AHB-Lite based host. The maximum size supported is 32 bits.
 
-### TECHNOLOGY
+#### TECHNOLOGY
 
 The `TECHNOLOGY` parameter defines the target silicon technology and may be one of the following values:
 
@@ -85,15 +87,13 @@ The `TECHNOLOGY` parameter defines the target silicon technology and may be one 
 
 Details of the implementations corresponding to these parameter values can be found in Section 6, Technology Support
 
-### REGISTERED\_OUTPUT
+#### REGISTERED\_OUTPUT
 
 The `REGISTERED_OUTPUT` parameter defines if the output of the memory is registered on assertion of the HREADY signal. It is specified as ‘YES’ or ‘NO’ (default).
 
-Interfaces
-==========
+## Interfaces
 
-AHB-Lite Interface
-------------------
+### AHB-Lite Interface
 
 The AHB-Lite interface is a regular AHB-Lite slave port. All signals are supported. See the *AMBA 3 AHB-Lite Specification* for a complete description of the signals.
 
@@ -114,19 +114,19 @@ The AHB-Lite interface is a regular AHB-Lite slave port. All signals are support
 | `HREADY`    |       1      | Input     | Transfer Ready Input          |
 | `HRESP`     |       1      | Input     | Transfer Response             |
 
-### HRESETn
+#### HRESETn
 
 When the active low asynchronous `HRESETn` input is asserted (‘0’), the interface is put into its initial reset state.
 
-### HCLK
+#### HCLK
 
 `HCLK` is the interface system clock. All internal logic for the AMB3-Lite interface operates at the rising edge of this system clock and AHB bus timings are related to the rising edge of `HCLK`.
 
-### HSEL
+#### HSEL
 
 The AHB-Lite interface only responds to other signals on its bus when `HSEL` is asserted (‘1’). When HSEL is negated (‘0’) the interface considers the bus IDLE and negates `HREADYOUT` (‘0’).
 
-### HTRANS
+#### HTRANS
 
 HTRANS indicates the type of the current transfer.
 
@@ -137,23 +137,23 @@ HTRANS indicates the type of the current transfer.
 | 10     | NONSEQ | First transfer of a burst or a single transfer                                           |
 | 11     | SEQ    | Remaining transfers of a burst                                                           |
 
-### HADDR
+#### HADDR
 
 `HADDR` is the address bus. Its size is determined by the `HADDR_SIZE` parameter and is driven to the connected peripheral.
 
-### HWDATA
+#### HWDATA
 
 `HWDATA` is the write data bus. Its size is determined by the `HDATA_SIZE` parameter and is driven to the connected peripheral.
 
-### HRDATA
+#### HRDATA
 
 `HRDATA` is the read data bus. Its size is determined by `HDATA_SIZE` parameter and is sourced by the APB4 peripheral.
 
-### HWRITE
+#### HWRITE
 
 `HWRITE` is the read/write signal. `HWRITE` asserted (‘1’) indicates a write transfer.
 
-### HSIZE
+#### HSIZE
 
 `HSIZE` indicates the size of the current transfer.
 
@@ -168,7 +168,7 @@ HTRANS indicates the type of the current transfer.
 | `110` | 512bit  |             |
 | `111` | 1024bit |             |
 
-### HBURST
+#### HBURST
 
 `HBURST` indicates the transaction burst type – a single transfer or part of a burst.
 
@@ -183,7 +183,7 @@ HTRANS indicates the type of the current transfer.
 |  `110` | WRAP16 | 16-beat wrapping burst       |
 |  `111` | INCR16 | 16-beat incrementing burst   |
 
-### HPROT
+#### HPROT
 
 The `HPROT` signals provide additional information about the bus transfer and are intended to implement a level of protection.
 
@@ -198,20 +198,19 @@ The `HPROT` signals provide additional information about the bus transfer and ar
 |   0   |   1   | Data Access                    |
 |       |   0   | Opcode fetch                   |
 
-### HREADYOUT
+#### HREADYOUT
 
 `HREADYOUT` indicates that the current transfer has finished.
 
-### HREADY
+#### HREADY
 
 `HREADY` indicates whether or not the addressed peripheral is ready to transfer data. When `HREADY` is negated (‘0’) the peripheral is not ready, forcing wait states. When `HREADY` is asserted (‘1’) the peripheral is ready and the transfer completed.
 
-### HRESP
+#### HRESP
 
 `HRESP` is the instruction transfer response and indicates OKAY (‘0’) or ERROR (‘1’). An error response causes an Instruction Bus Error Interrupt.
 
-Resources
-=========
+## Resources
 
 Below are some example implementations for various platforms.
 
@@ -223,26 +222,23 @@ All implementations are push button, no effort has been undertaken to reduce are
 |          |     |             |        |                   |
 |          |     |             |        |                   |
 
-Technology Support
-==================
+## Technology Support
 
 Physical memory implementation in silicon depends on the target technology chosen. The AHB-Lite Memory IP allows a designer to specify either a generic (i.e. behavioural) implementation or one of multiple technology-specific implementations via the `TECHNOLOGY` parameter. This section provides details of these implementations
 
-GENERIC Implementation
-----------------------
+### GENERIC Implementation
 
 The `GENERIC` option is used to implement regular behavioural HDL allowing both the physical implementation to be controlled during hardware synthesis and full behavioural simulation to be performed.
 
-eASIC Structured ASIC Support
------------------------------
+### eASIC Structured ASIC Support
 
 The IP supports the Nextreme-3 and Nextreme-3S families as described below. Please refer to the relevant technology datasheets for complete details of the memory structures referenced.
 
-### Nextreme-3 Implementation (N3X)
+#### Nextreme-3 Implementation (N3X)
 
 The Nextreme-3 family of devices features 9Kbit memory blocks, referred to as ‘bRAM’. When the `TECHNOLOGY` parameter is defined as ‘N3X’, all memory will be implemented using 9Kbit bRAM cells.
 
-### Nextreme-3S Implementation (N3XS)
+#### Nextreme-3S Implementation (N3XS)
 
 The Nextreme-3S series of devices features separate 2Kbit and 18Kbit memory blocks, referred to as ‘bRAM2K’ and ‘bRAM18K’ respectively. The choice of which of these blocks are implemented when the `TECHNOLOGY` parameter is defined as ‘N3XS’ is as follows:
 
@@ -251,11 +247,9 @@ The Nextreme-3S series of devices features separate 2Kbit and 18Kbit memory bloc
 |    N3XS    | ≤4096 bits    | bRAM2K blocks only  |
 |    N3XS    | &gt;4096 bits | bRAM18K blocks only |
 
-References
-==========
+## References
 
-Revision History
-================
+## Revision History
 
 | Date        | Rev. | Comments |
 |:------------|:-----|:---------|
