@@ -4,13 +4,16 @@ category: Datasheet
 author: Roa Logic
 ---
 
+# AHB-Lite Memory Datasheet
+
+## Contents
+
 -   [Introduction](#introduction)
 -   [Functional Description](#functional-description)
 -   [Configurations](#configurations)
 -   [Interfaces](#interfaces)
--   [Resources](#resources)
 -   [Technology Support](#technology-support)
--   [References](#references)
+-   [Resources](#resources)
 -   [Revision History](#revision-history)
 
 ## Introduction
@@ -210,18 +213,6 @@ The `HPROT` signals provide additional information about the bus transfer and ar
 
 `HRESP` is the instruction transfer response and indicates OKAY (‘0’) or ERROR (‘1’). An error response causes an Instruction Bus Error Interrupt.
 
-## Resources
-
-Below are some example implementations for various platforms.
-
-All implementations are push button, no effort has been undertaken to reduce area or improve performance.
-
-| Platform | DFF | Logic Cells | Memory | Performance (MHz) |
-|:---------|:----|:------------|:-------|:------------------|
-|          |     |             |        |                   |
-|          |     |             |        |                   |
-|          |     |             |        |                   |
-
 ## Technology Support
 
 Physical memory implementation in silicon depends on the target technology chosen. The AHB-Lite Memory IP allows a designer to specify either a generic (i.e. behavioural) implementation or one of multiple technology-specific implementations via the `TECHNOLOGY` parameter. This section provides details of these implementations
@@ -247,13 +238,25 @@ The Nextreme-3S series of devices features separate 2Kbit and 18Kbit memory bloc
 |    N3XS    | ≤4096 bits    | bRAM2K blocks only  |
 |    N3XS    | &gt;4096 bits | bRAM18K blocks only |
 
-## References
+## Resources
+
+Below are some example implementations for various platforms.
+
+All implementations are push button, no effort has been undertaken to reduce area or improve performance.
+
+| Platform | DFF | Logic Cells | Memory | Performance (MHz) |
+|:---------|:----|:------------|:-------|:------------------|
+|          |     |             |        |                   |
+|          |     |             |        |                   |
+|          |     |             |        |                   |
+
+(This table will be complete in future updates to the datasheet)
 
 ## Revision History
 
-| Date        | Rev. | Comments |
-|:------------|:-----|:---------|
-| 01-Feb-2017 | 1.0  |          |
-|             |      |          |
-|             |      |          |
-|             |      |          |
+|     Date    | Rev. | Comments        |
+|:-----------:|:----:|:----------------|
+| 13-Oct-2017 |  1.0 | Initial Release |
+|             |      |                 |
+|             |      |                 |
+|             |      |                 |

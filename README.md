@@ -16,6 +16,8 @@ The IP supports a single AHB-Lite based host connection and enables address & da
 
 [Datasheet](DATASHEET.md)
 
+- [PDF Format](docs/ahb3lite_memory_datasheet.pdf)
+
 ## Features
 
 - Full support for AMBA 3 AHB-Lite protocol
