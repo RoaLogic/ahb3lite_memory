@@ -36,9 +36,9 @@ interface is put into its initial reset state.
 
 \subsection{HCLK}\label{hclk}
 
-\texttt{HCLK} is the interface system clock. All internal logic for the AMB3-Lite
-interface operates at the rising edge of this system clock and AHB bus
-timings are related to the rising edge of \texttt{HCLK}.
+\texttt{HCLK} is the interface system clock.
+All internal logic for the AHB-Lite interface operates at the rising edge of this system clock.
+All AHB-Lite bus timings are related to the rising edge of \texttt{HCLK}.
 
 \subsection{HSEL}\label{hsel}
 
@@ -78,7 +78,7 @@ parameter and is driven to the connected peripheral.
 \subsection{HRDATA}\label{hrdata}
 
 \texttt{HRDATA} is the read data bus. Its size is determined by \texttt{HDATA\_SIZE}
-parameter and is sourced by the APB4 peripheral.
+parameter and is driven by the connected peripheral.
 
 \subsection{HWRITE}\label{hwrite}
 
@@ -163,6 +163,4 @@ ready and the transfer completed.
 
 \subsection{HRESP}\label{hresp}
 
-\texttt{HRESP} is the instruction transfer response and indicates OKAY (`0') or
-ERROR (`1'). An error response causes an Instruction Bus Error
-Interrupt.
+\texttt{HRESP} is the instruction transfer response and indicates OKAY (`0') or ERROR (`1').
