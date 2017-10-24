@@ -8,9 +8,8 @@ The IP supports a single AHB-Lite based host connection and enables address & da
 
 ## Documentation
 
-[Datasheet](DATASHEET.md)
-
-- [PDF Format](docs/ahb3lite_memory_datasheet.pdf)
+- [Datasheet](DATASHEET.md)
+  - [PDF Format](docs/ahb3lite_memory_datasheet.pdf)
 
 ## Features
 
