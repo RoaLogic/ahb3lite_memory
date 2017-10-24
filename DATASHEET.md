@@ -84,7 +84,7 @@ The `TECHNOLOGY` parameter defines the target silicon technology and may be one 
 
 | Parameter Value | Description                       |
 |:----------------|:----------------------------------|
-| GENERIC         | Behavioural Implementation        |
+| GENERIC         | Behavioural (FPGA) Implementation |
 | N3X             | eASIC Nextreme-3 Structured ASIC  |
 | N3XS            | eASIC Nextreme-3S Structured ASIC |
 
@@ -123,7 +123,7 @@ When the active low asynchronous `HRESETn` input is asserted (‘0’), the inte
 
 #### HCLK
 
-`HCLK` is the interface system clock. All internal logic for the AMB3-Lite interface operates at the rising edge of this system clock and AHB bus timings are related to the rising edge of `HCLK`.
+`HCLK` is the interface system clock. All internal logic for the AHB-Lite interface operates at the rising edge of this system clock. All AHB-Lite bus timings are related to the rising edge of `HCLK`.
 
 #### HSEL
 
@@ -150,7 +150,7 @@ HTRANS indicates the type of the current transfer.
 
 #### HRDATA
 
-`HRDATA` is the read data bus. Its size is determined by `HDATA_SIZE` parameter and is sourced by the APB4 peripheral.
+`HRDATA` is the read data bus. Its size is determined by `HDATA_SIZE` parameter and is driven by the connected peripheral.
 
 #### HWRITE
 
@@ -211,7 +211,7 @@ The `HPROT` signals provide additional information about the bus transfer and ar
 
 #### HRESP
 
-`HRESP` is the instruction transfer response and indicates OKAY (‘0’) or ERROR (‘1’). An error response causes an Instruction Bus Error Interrupt.
+`HRESP` is the instruction transfer response and indicates OKAY (‘0’) or ERROR (‘1’).
 
 ## Technology Support
 
@@ -219,7 +219,7 @@ Physical memory implementation in silicon depends on the target technology chose
 
 ### GENERIC Implementation
 
-The `GENERIC` option is used to implement regular behavioural HDL allowing both the physical implementation to be controlled during hardware synthesis and full behavioural simulation to be performed.
+The `GENERIC` option is used to implement regular behavioural HDL allowing both the physical implementation to be controlled during hardware synthesis and full behavioural simulation to be performed. Use this option to infer memories for technologies that support this, like FPGAs.
 
 ### eASIC Structured ASIC Support
 
