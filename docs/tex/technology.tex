@@ -1,0 +1,44 @@
+\chapter{Technology Support} \label{technology-support}
+
+Physical memory implementation in silicon depends on the target
+technology chosen. The AHB-Lite Memory IP allows a designer to
+specify either a generic (i.e. behavioural) implementation or one 
+of multiple technology-specific implementations via the \texttt{TECHNOLOGY} 
+parameter. This section provides details of these implementations
+
+ \section{GENERIC Implementation} \label{generic-implementation}
+
+The \texttt{GENERIC} option is used to implement regular behavioural HDL allowing
+both the physical implementation to be controlled during hardware
+synthesis and full behavioural simulation to be performed.
+Use this option to infer memories for technologies that support this, like FPGAs.
+
+ \section{eASIC Structured ASIC Support} \label{easic-structured-asic-support}
+
+The IP supports the Nextreme-3 and Nextreme-3S families as described
+below. Please refer to the relevant technology datasheets for complete
+details of the memory structures referenced.
+
+ \subsection{Nextreme-3 Implementation (N3X)} \label{nextreme-3-implementation-n3x}
+
+The Nextreme-3 family of devices features 9Kbit memory blocks, referred
+to as `bRAM'. When the \texttt{TECHNOLOGY} parameter is defined as `N3X', all
+memory will be implemented using 9Kbit bRAM cells.
+
+ \subsection{Nextreme-3S Implementation (N3XS)} \label{nextreme-3s-implementation-n3xs}
+
+The Nextreme-3S series of devices features separate 2Kbit and 18Kbit
+memory blocks, referred to as `bRAM2K' and `bRAM18K' respectively. The
+choice of which of these blocks are implemented when the \texttt{TECHNOLOGY}
+parameter is defined as `N3XS' is as follows:
+
+\begin{longtable}[]{@{}cll@{}}
+	\toprule
+	TECHNOLOGY & Memory Size & Implementation\tabularnewline
+	\midrule
+	\endhead
+	N3XS & $\leqslant$4096 bits & bRAM2K blocks only\tabularnewline
+	N3XS & \textgreater{}4096 bits & bRAM18K blocks only\tabularnewline
+	\bottomrule
+	\caption{Nextreme-3S Memory Implementation Styles}
+\end{longtable}
