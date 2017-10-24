@@ -1,9 +1,3 @@
----
-Title: AHB-Lite Memory
-Category: Product Brief
-Author: Roa Logic
----
-
 # AHB-Lite Memory
 
 The Roa Logic AHB-Lite Memory IP is a fully parameterized soft IP implementing on-chip memory for access by an AHB-Lite based Master. All signals defined in the *AMBA 3 AHB-Lite v1.0* specifications are fully supported.
