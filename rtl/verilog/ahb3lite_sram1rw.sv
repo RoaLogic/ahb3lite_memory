@@ -1,39 +1,72 @@
-/////////////////////////////////////////////////////////////////
-//                                                             //
-//    ██████╗  ██████╗  █████╗                                 //
-//    ██╔══██╗██╔═══██╗██╔══██╗                                //
-//    ██████╔╝██║   ██║███████║                                //
-//    ██╔══██╗██║   ██║██╔══██║                                //
-//    ██║  ██║╚██████╔╝██║  ██║                                //
-//    ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝                                //
-//          ██╗      ██████╗  ██████╗ ██╗ ██████╗              //
-//          ██║     ██╔═══██╗██╔════╝ ██║██╔════╝              //
-//          ██║     ██║   ██║██║  ███╗██║██║                   //
-//          ██║     ██║   ██║██║   ██║██║██║                   //
-//          ███████╗╚██████╔╝╚██████╔╝██║╚██████╗              //
-//          ╚══════╝ ╚═════╝  ╚═════╝ ╚═╝ ╚═════╝              //
-//                                                             //
-//    AHB3-Lite Single Port SRAM                               //
-//                                                             //
-/////////////////////////////////////////////////////////////////
-//                                                             //
-//             Copyright (C) 2016 ROA Logic BV                 //
-//             www.roalogic.com                                //
-//                                                             //
-//    Unless specifically agreed in writing, this software is  //
-//  licensed under the RoaLogic Non-Commercial License         //
-//  version-1.0 (the "License"), a copy of which is included   //
-//  with this file or may be found on the RoaLogic website     //
-//  http://www.roalogic.com. You may not use the file except   //
-//  in compliance with the License.                            //
-//                                                             //
-//    THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT ANY        //
-//  EXPRESS OF IMPLIED WARRANTIES OF ANY KIND.                 //
-//  See the License for permissions and limitations under the  //
-//  License.                                                   //
-//                                                             //
-/////////////////////////////////////////////////////////////////
- 
+/////////////////////////////////////////////////////////////////////
+//   ,------.                    ,--.                ,--.          //
+//   |  .--. ' ,---.  ,--,--.    |  |    ,---. ,---. `--' ,---.    //
+//   |  '--'.'| .-. |' ,-.  |    |  |   | .-. | .-. |,--.| .--'    //
+//   |  |\  \ ' '-' '\ '-'  |    |  '--.' '-' ' '-' ||  |\ `--.    //
+//   `--' '--' `---'  `--`--'    `-----' `---' `-   /`--' `---'    //
+//                                             `---'               //
+//   AHB3-Lite Single Port SRAM                                    //
+//                                                                 //
+/////////////////////////////////////////////////////////////////////
+//                                                                 //
+//             Copyright (C) 2016-2017 ROA Logic BV                //
+//             www.roalogic.com                                    //
+//                                                                 //
+//   This source file may be used and distributed without          //
+//   restriction provided that this copyright statement is not     //
+//   removed from the file and that any derivative work contains   //
+//   the original copyright notice and the associated disclaimer.  //
+//                                                                 //
+//      THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY        //
+//   EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED     //
+//   TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS     //
+//   FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL THE AUTHOR OR     //
+//   CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,  //
+//   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT  //
+//   NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;  //
+//   LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)      //
+//   HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN     //
+//   CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR  //
+//   OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS          //
+//   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  //
+//                                                                 //
+/////////////////////////////////////////////////////////////////////
+
+// +FHDR -  Semiconductor Reuse Standard File Header Section  -------
+// FILE NAME      : ahb3lite_sram1rw.sv
+// DEPARTMENT     :
+// AUTHOR         : rherveille
+// AUTHOR'S EMAIL :
+// ------------------------------------------------------------------
+// RELEASE HISTORY
+// VERSION DATE        AUTHOR      DESCRIPTION
+// 1.0     2017-04-01  rherveille  initial release
+// ------------------------------------------------------------------
+// KEYWORDS : AMBA AHB AHB3-Lite MEMORY SRAM
+// ------------------------------------------------------------------
+// PURPOSE  : General purpose AHB3Lite memory
+// ------------------------------------------------------------------
+// PARAMETERS
+//  PARAM NAME        RANGE    DESCRIPTION              DEFAULT UNITS
+//  MEM_SIZE          1+       Memory size              0       Bytes
+//  MEM_DEPTH         1+       Memory Depth             256     Words
+//  HADDR_SIZE        1+       Address bus size         8       bits
+//  HDATA_SIZE        1+       Data bus size            32      bits
+//  TECHNOLOGY                 Target technology        GENERIC
+//  REGISTERED_OUTPUT [YES,NO] Registered outputs?      NO
+// ------------------------------------------------------------------
+// REUSE ISSUES 
+//   Reset Strategy      : external asynchronous active low; HRESETn
+//   Clock Domains       : HCLK, rising edge
+//   Critical Timing     : 
+//   Test Features       : na
+//   Asynchronous I/F    : no
+//   Scan Methodology    : na
+//   Instantiations      : rl_ram_1r1w
+//   Synthesizable (y/n) : Yes
+//   Other               :                                         
+// -FHDR-------------------------------------------------------------
+
 
 module ahb3lite_sram1rw #(
   parameter MEM_SIZE          = 0,   //Memory in Bytes
@@ -95,22 +128,28 @@ module ahb3lite_sram1rw #(
   //
   // Functions
   //
-  function logic [6:0] address_mask;
+  function logic [6:0] address_offset;
+    //returns a mask for the lesser bits of the address
+    //meaning bits [  0] for 16bit data
+    //             [1:0] for 32bit data
+    //             [2:0] for 64bit data
+    //etc
+
     //default value, prevent warnings
-	 address_mask = 0;
+    address_offset = 0;
 	 
-    //Which bits in HADDR should be taken into account?
+    //What are the lesser bits in HADDR?
     case (HDATA_SIZE)
-          1024: address_mask = 7'b111_1111; 
-           512: address_mask = 7'b011_1111;
-           256: address_mask = 7'b001_1111;
-           128: address_mask = 7'b000_1111;
-            64: address_mask = 7'b000_0111;
-            32: address_mask = 7'b000_0011;
-            16: address_mask = 7'b000_0001;
-       default: address_mask = 7'b000_0000;
+          1024: address_offset = 7'b111_1111; 
+           512: address_offset = 7'b011_1111;
+           256: address_offset = 7'b001_1111;
+           128: address_offset = 7'b000_1111;
+            64: address_offset = 7'b000_0111;
+            32: address_offset = 7'b000_0011;
+            16: address_offset = 7'b000_0001;
+       default: address_offset = 7'b000_0000;
     endcase
-  endfunction //address_mask
+  endfunction //address_offset
 
 
   function logic [BE_SIZE-1:0] gen_be;
@@ -133,9 +172,9 @@ module ahb3lite_sram1rw #(
     endcase
 
     //generate masked address
-    haddr_masked = haddr & address_mask();
+    haddr_masked = haddr & address_offset();
 
-    //create PSTRB
+    //create byte-enable
     gen_be = full_be[BE_SIZE-1:0] << haddr_masked;
   endfunction //gen_be
 
