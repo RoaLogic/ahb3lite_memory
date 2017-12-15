@@ -1,0 +1,63 @@
+\chapter{Configurations}\label{configurations}
+
+\section{Introduction}\label{introduction-1}
+
+The size and implementation style of the memory is defined via HDL parameters. These are specified in the following section.
+
+\section{Core Parameters}\label{core-parameters}
+
+\begin{longtable}[]{@{}llcl@{}}
+	\toprule
+	Parameter                   & Type    & Default & Description\tabularnewline
+	\midrule
+	\endhead
+	\texttt{MEM\_DEPTH}         & Integer & 256     & Memory Depth (Words)\tabularnewline
+	\texttt{HADDR\_SIZE}        & Integer & 32      & Address Bus Size (Bits)\tabularnewline
+	\texttt{HDATA\_SIZE}        & Integer & 32      & Data Bus Size (Bits)\tabularnewline
+	\texttt{TECHNOLOGY}         & String  & GENERIC & Implementation Technology\tabularnewline
+	\texttt{REGISTERED\_OUTPUT} & String  & NO      & Is output registered?\tabularnewline
+	\bottomrule
+	\caption{AHB-Lite Memory Parameters}
+\end{longtable}
+
+
+ \subsection{MEM\_DEPTH}\label{mem_depth}
+
+\texttt{MEM\_DEPTH} defines the depth of the memory -- i.e. number of \texttt{HDATA\_SIZE}
+words to be stored. The maximum depth supported is dependent upon the
+target technology chosen.
+
+ \subsection{HADDR\_SIZE}\label{haddr_size}
+
+The \texttt{HADDR\_SIZE} parameter specifies the address bus size to connect 
+to the AHB-Lite based host. The maximum size supported is 32 bits.
+
+ \subsection{HDATA\_SIZE}\label{hdata_size}
+
+The \texttt{HDATA\_SIZE} parameter specifies the data bus size to connect to 
+the AHB-Lite based host. The maximum size supported is 32 bits.
+
+ \subsection{TECHNOLOGY}\label{technology}
+
+The \texttt{TECHNOLOGY} parameter defines the target silicon technology and 
+may be one of the following values:
+
+\begin{longtable}[]{@{}ll@{}}
+	\toprule
+	Parameter Value & Description\tabularnewline
+	\midrule
+	\endhead
+	GENERIC & Behavioural (FPGA) Implementation\tabularnewline
+	N3X & eASIC Nextreme-3 Structured ASIC\tabularnewline
+	N3XS & eASIC Nextreme-3S Structured ASIC\tabularnewline
+	\bottomrule
+	\caption{Supported Technology Targets}
+\end{longtable}
+
+Details of the implementations corresponding to these parameter values can be found in Section 6, Technology Support
+
+ \subsection{REGISTERED\_OUTPUT}\label{registered_output}
+
+The \texttt{REGISTERED\_OUTPUT} parameter defines if the output of the memory 
+is registered on assertion of the HREADY signal. It is specified as 
+`YES' or `NO' (default).
