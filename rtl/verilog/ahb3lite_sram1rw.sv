@@ -55,16 +55,16 @@
 //  TECHNOLOGY                 Target technology        GENERIC
 //  REGISTERED_OUTPUT [YES,NO] Registered outputs?      NO
 // ------------------------------------------------------------------
-// REUSE ISSUES 
+// REUSE ISSUES
 //   Reset Strategy      : external asynchronous active low; HRESETn
 //   Clock Domains       : HCLK, rising edge
-//   Critical Timing     : 
+//   Critical Timing     :
 //   Test Features       : na
 //   Asynchronous I/F    : no
 //   Scan Methodology    : na
 //   Instantiations      : rl_ram_1r1w
 //   Synthesizable (y/n) : Yes
-//   Other               :                                         
+//   Other               :
 // -FHDR-------------------------------------------------------------
 
 
@@ -74,7 +74,9 @@ module ahb3lite_sram1rw #(
   parameter HADDR_SIZE        = 8,
   parameter HDATA_SIZE        = 32,
   parameter TECHNOLOGY        = "GENERIC",
-  parameter REGISTERED_OUTPUT = "NO"
+  parameter REGISTERED_OUTPUT = "NO",
+  parameter INIT_MEMORY       = 0,
+  parameter INIT_FILE         = ""
 )
 (
   input                       HRESETn,
@@ -109,7 +111,7 @@ module ahb3lite_sram1rw #(
   localparam REAL_MEM_DEPTH = MEM_DEPTH > MEM_SIZE_DEPTH ? MEM_DEPTH : MEM_SIZE_DEPTH;
   localparam MEM_ABITS      = $clog2(REAL_MEM_DEPTH);
   localparam MEM_ABITS_LSB  = $clog2(BE_SIZE);
-  
+
 
   //////////////////////////////////////////////////////////////////
   //
@@ -137,10 +139,10 @@ module ahb3lite_sram1rw #(
 
     //default value, prevent warnings
     address_offset = 0;
-	 
+
     //What are the lesser bits in HADDR?
     case (HDATA_SIZE)
-          1024: address_offset = 7'b111_1111; 
+          1024: address_offset = 7'b111_1111;
            512: address_offset = 7'b011_1111;
            256: address_offset = 7'b001_1111;
            128: address_offset = 7'b000_1111;
@@ -161,7 +163,7 @@ module ahb3lite_sram1rw #(
 
     //get number of active lanes for a 1024bit databus (max width) for this HSIZE
     case (hsize)
-       HSIZE_B1024: full_be = 'hffff_ffff_ffff_ffff_ffff_ffff_ffff_ffff; 
+       HSIZE_B1024: full_be = 'hffff_ffff_ffff_ffff_ffff_ffff_ffff_ffff;
        HSIZE_B512 : full_be = 'hffff_ffff_ffff_ffff;
        HSIZE_B256 : full_be = 'hffff_ffff;
        HSIZE_B128 : full_be = 'hffff;
@@ -218,18 +220,20 @@ module ahb3lite_sram1rw #(
   rl_ram_1r1w #(
     .ABITS      ( MEM_ABITS  ),
     .DBITS      ( HDATA_SIZE ),
-    .TECHNOLOGY ( TECHNOLOGY ) )
+    .TECHNOLOGY ( TECHNOLOGY ),
+    .INIT_MEMORY( INIT_MEMORY),
+    .INIT_FILE  ( INIT_FILE ))
   ram_inst (
-    .rstn  ( HRESETn              ),
-    .clk   ( HCLK                 ),
+    .rst_ni  ( HRESETn              ),
+    .clk_i   ( HCLK                 ),
 
-    .waddr ( waddr[MEM_ABITS_LSB +: MEM_ABITS] ),
-    .we    ( we                   ),
-    .be    ( be                   ),
-    .din   ( HWDATA               ),
-
-    .raddr ( HADDR[MEM_ABITS_LSB +: MEM_ABITS] ),
-    .dout  ( dout                 )
+    .waddr_i ( waddr[MEM_ABITS_LSB +: MEM_ABITS] ),
+    .we_i    ( we                   ),
+    .be_i    ( be                   ),
+    .din_i   ( HWDATA               ),
+    .re_i(0),
+    .raddr_i ( HADDR[MEM_ABITS_LSB +: MEM_ABITS] ),
+    .dout_o  ( dout                 )
   );
 
   //AHB bus response
