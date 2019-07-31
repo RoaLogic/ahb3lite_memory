@@ -229,7 +229,7 @@ module ahb3lite_sram1rw #(
     .din_i   ( HWDATA               ),
 
     .raddr_i ( HADDR[MEM_ABITS_LSB +: MEM_ABITS] ),
-    .dout_i  ( dout                 )
+    .dout_o  ( dout                 )
   );
 
   //AHB bus response
