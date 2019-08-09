@@ -117,13 +117,18 @@ module ahb3lite_sram1rw #(
   //
   // Variables
   //
+  logic                  ahb_write,
+                         ahb_read;
+
   logic                  we;
   logic [BE_SIZE   -1:0] be;
-  logic [HADDR_SIZE-1:0] waddr;
-  logic                  contention;
-  logic                  ready;
+  logic [MEM_ABITS -1:0] raddr,
+                         waddr;
 
-  logic [HDATA_SIZE-1:0] dout;
+  logic                  contention,
+                         use_local_dout;
+  logic [HDATA_SIZE-1:0] dout,
+                         dout_local;
 
 
   //////////////////////////////////////////////////////////////////
@@ -151,7 +156,7 @@ module ahb3lite_sram1rw #(
             16: address_offset = 7'b000_0001;
        default: address_offset = 7'b000_0000;
     endcase
-  endfunction //address_offset
+  endfunction : address_offset
 
 
   function logic [BE_SIZE-1:0] gen_be;
@@ -178,7 +183,20 @@ module ahb3lite_sram1rw #(
 
     //create byte-enable
     gen_be = full_be[BE_SIZE-1:0] << haddr_masked;
-  endfunction //gen_be
+  endfunction : gen_be
+
+
+  function logic [HDATA_SIZE-1:0] gen_val;
+    //Returns the new value for a register
+    // if be[n] == '1' then gen_val[byte_n] = new_val[byte_n]
+    // else                 gen_val[byte_n] = old_val[byte_n]
+    input [HDATA_SIZE-1:0] old_val,
+                           new_val;
+    input [BE_SIZE   -1:0] be;
+
+    for (int n=0; n < BE_SIZE; n++)
+      gen_val[n*8 +: 8] = be[n] ? new_val[n*8 +: 8] : old_val[n*8 +: 8];
+  endfunction : gen_val
 
 
   //////////////////////////////////////////////////////////////////
@@ -186,29 +204,27 @@ module ahb3lite_sram1rw #(
   // Module Body
   //
 
+  //AHB read/write cycle...
+  assign ahb_write = HSEL &  HWRITE & (HTRANS != HTRANS_BUSY) & (HTRANS != HTRANS_IDLE);
+  assign ahb_read  = HSEL & ~HWRITE & (HTRANS != HTRANS_BUSY) & (HTRANS != HTRANS_IDLE);
+
+
   //generate internal write signal
   //This causes read/write contention, which is handled by memory
   always @(posedge HCLK)
-    if (HREADY) we <= HSEL & HWRITE & (HTRANS != HTRANS_BUSY) & (HTRANS != HTRANS_IDLE);
+    if (HREADY) we <= ahb_write;
     else        we <= 1'b0;
 
   //decode Byte-Enables
   always @(posedge HCLK)
     if (HREADY) be <= gen_be(HSIZE,HADDR);
 
+  //read address
+  assign raddr = HADDR[MEM_ABITS_LSB +: MEM_ABITS];
+
   //store write address
   always @(posedge HCLK)
-    if (HREADY) waddr <= HADDR;
-
-
-  //Is there read/write contention on the memory?
-  assign contention = (waddr[MEM_ABITS_LSB +: MEM_ABITS] == HADDR[MEM_ABITS_LSB +: MEM_ABITS]) & we &
-                      HSEL & HREADY & ~HWRITE & (HTRANS != HTRANS_BUSY) & (HTRANS != HTRANS_IDLE);
-
-  //if all bytes were written contention is/can be handled by memory
-  //otherwise stall a cycle (forced by N3S)
-  //We could do an exception for N3S here, but this file should be technology agnostic
-  assign ready = ~(contention & ~&be);
+    if (HREADY) waddr <= raddr;
 
 
   /*
@@ -222,31 +238,64 @@ module ahb3lite_sram1rw #(
     .DBITS      ( HDATA_SIZE ),
     .TECHNOLOGY ( TECHNOLOGY ),
     .INIT_MEMORY( INIT_MEMORY),
-    .INIT_FILE  ( INIT_FILE ))
+    .INIT_FILE  ( INIT_FILE ) )
   ram_inst (
-    .rst_ni  ( HRESETn              ),
-    .clk_i   ( HCLK                 ),
+    .rst_ni  ( HRESETn ),
+    .clk_i   ( HCLK    ),
 
-    .waddr_i ( waddr[MEM_ABITS_LSB +: MEM_ABITS] ),
-    .we_i    ( we                   ),
-    .be_i    ( be                   ),
-    .din_i   ( HWDATA               ),
-    .re_i(0),
-    .raddr_i ( HADDR[MEM_ABITS_LSB +: MEM_ABITS] ),
-    .dout_o  ( dout                 )
+    .waddr_i ( waddr   ),
+    .we_i    ( we      ),
+    .be_i    ( be      ),
+    .din_i   ( HWDATA  ),
+
+    .re_i    ( HSEL    ),
+    .raddr_i ( raddr   ),
+    .dout_o  ( dout    )
   );
 
-  //AHB bus response
+  /*
+   * Handle Read/Write contention
+   *
+   * A write immediately followed by a read to the same address
+   * in the next clock cycle causes read/write contention in the memory
+   *
+   * Handle that here by keeping a local copy of that addresses contents
+   */
+
+  //use the local copy during writing to the same address
+  //otherwise take a fresh copy from the actual memory
+  always @(posedge HCLK)
+    use_local_dout <= we && (raddr == waddr);
+
+
+  //keep a local copy of the memory contents and update it during a write cycle
+  // -gen_val combines current content with write-content based on byte-enables
+  // -either combine the memory's content with the new write data
+  //  or update the local copy with new write data
+  always @(posedge HCLK)
+    if (we) dout_local <= gen_val( use_local_dout ? dout_local : dout,
+                                   HWDATA,
+                                   be);
+
+
+  //Is there read/write contention on the memory?
+  always @(posedge HCLK)
+    contention <= ahb_read         & //current cycle is a read cycle
+                  we               & //previous cycle was a write cycle
+                  (raddr == waddr);  //read and write address are the same
+
+
+  /*
+   * AHB BUS Response
+   */
   assign HRESP = HRESP_OKAY; //always OK
 
 generate
   if (REGISTERED_OUTPUT == "NO")
   begin
-      always @(posedge HCLK,negedge HRESETn)
-        if (!HRESETn) HREADYOUT <= 1'b1;
-        else          HREADYOUT <= ready;
+      always_comb HREADYOUT <= 1'b1;
 
-      always_comb HRDATA = dout;
+      always_comb HRDATA = contention ? dout_local : dout;
   end
   else
   begin
@@ -256,7 +305,7 @@ generate
              else                                    HREADYOUT <= 1'b1;
 
       always @(posedge HCLK)
-        if (HREADY) HRDATA <= dout;
+        if (HREADY) HRDATA <= contention ? dout_local : dout;
   end
 endgenerate
 
