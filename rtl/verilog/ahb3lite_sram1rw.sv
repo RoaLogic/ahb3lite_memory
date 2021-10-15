@@ -75,7 +75,8 @@ module ahb3lite_sram1rw #(
   parameter HADDR_SIZE        = 8,
   parameter HDATA_SIZE        = 32,
   parameter TECHNOLOGY        = "GENERIC",
-  parameter REGISTERED_OUTPUT = "NO"
+  parameter REGISTERED_OUTPUT = "NO",
+  parameter INIT_FILE         = ""
 )
 (
   input                       HRESETn,
@@ -235,7 +236,8 @@ module ahb3lite_sram1rw #(
   rl_ram_1r1w #(
     .ABITS      ( MEM_ABITS  ),
     .DBITS      ( HDATA_SIZE ),
-    .TECHNOLOGY ( TECHNOLOGY ) )
+    .TECHNOLOGY ( TECHNOLOGY ),
+    .INIT_FILE  ( INIT_FILE  ) )
   ram_inst (
     .rst_ni  ( HRESETn ),
     .clk_i   ( HCLK    ),
