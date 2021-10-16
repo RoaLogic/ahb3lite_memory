@@ -168,14 +168,14 @@ module ahb3lite_sram1rw #(
 
     //get number of active lanes for a 1024bit databus (max width) for this HSIZE
     case (hsize)
-       HSIZE_B1024: full_be = 'hffff_ffff_ffff_ffff_ffff_ffff_ffff_ffff; 
-       HSIZE_B512 : full_be = 'hffff_ffff_ffff_ffff;
-       HSIZE_B256 : full_be = 'hffff_ffff;
-       HSIZE_B128 : full_be = 'hffff;
-       HSIZE_DWORD: full_be = 'hff;
-       HSIZE_WORD : full_be = 'hf;
-       HSIZE_HWORD: full_be = 'h3;
-       default    : full_be = 'h1;
+       HSIZE_B1024: full_be = {128{1'b1}}; 
+       HSIZE_B512 : full_be = { 64{1'b1}};
+       HSIZE_B256 : full_be = { 32{1'b1}};
+       HSIZE_B128 : full_be = { 16{1'b1}};
+       HSIZE_DWORD: full_be = {  8{1'b1}};
+       HSIZE_WORD : full_be = {  4{1'b1}};
+       HSIZE_HWORD: full_be = {  2{1'b1}};
+       default    : full_be = {  1{1'b1}};
     endcase
 
     //generate masked address
