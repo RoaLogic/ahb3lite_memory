@@ -119,13 +119,15 @@ module ahb3lite_sram1rw #(
   //
   logic                  ahb_write,
                          ahb_read,
-                         ahb_nosel,
-			 was_ahb_nosel;
+                         ahb_noseq,
+                         was_ahb_noseq;
 
   logic                  we;
   logic [BE_SIZE   -1:0] be;
   logic [MEM_ABITS -1:0] raddr,
                          waddr;
+
+  logic [HADDR_SIZE-1:0] nxt_adr;
 
   logic                  contention,
                          use_local_dout;
@@ -137,7 +139,7 @@ module ahb3lite_sram1rw #(
   //
   // Functions
   //
-  function logic [6:0] address_offset;
+  function automatic logic [6:0] address_offset;
     //returns a mask for the lesser bits of the address
     //meaning bits [  0] for 16bit data
     //             [1:0] for 32bit data
@@ -161,7 +163,7 @@ module ahb3lite_sram1rw #(
   endfunction : address_offset
 
 
-  function logic [BE_SIZE-1:0] gen_be;
+  function automatic logic [BE_SIZE-1:0] gen_be;
     input [           2:0] hsize;
     input [HADDR_SIZE-1:0] haddr;
 
@@ -170,7 +172,7 @@ module ahb3lite_sram1rw #(
 
     //get number of active lanes for a 1024bit databus (max width) for this HSIZE
     case (hsize)
-       HSIZE_B1024: full_be = {128{1'b1}}; 
+       HSIZE_B1024: full_be = {128{1'b1}};
        HSIZE_B512 : full_be = { 64{1'b1}};
        HSIZE_B256 : full_be = { 32{1'b1}};
        HSIZE_B128 : full_be = { 16{1'b1}};
@@ -188,7 +190,73 @@ module ahb3lite_sram1rw #(
   endfunction : gen_be
 
 
-  function logic [HDATA_SIZE-1:0] gen_val;
+  function automatic logic [HADDR_SIZE-1:0] gen_nxt_adr_incr;
+    //Returns the next address for an incrementing burst
+    input [HADDR_SIZE-1:0] cur_adr;
+    input [HSIZE_SIZE-1:0] hsize;
+
+    case (hsize)
+       HSIZE_B1024: gen_nxt_adr_incr = cur_adr + 'h128;
+       HSIZE_B512 : gen_nxt_adr_incr = cur_adr + 'h 64;
+       HSIZE_B256 : gen_nxt_adr_incr = cur_adr + 'h 32;
+       HSIZE_B128 : gen_nxt_adr_incr = cur_adr + 'h 16;
+       HSIZE_DWORD: gen_nxt_adr_incr = cur_adr + 'h 8;
+       HSIZE_WORD : gen_nxt_adr_incr = cur_adr + 'h 4;
+       HSIZE_HWORD: gen_nxt_adr_incr = cur_adr + 'h 2;
+       default    : gen_nxt_adr_incr = cur_adr + 'h 1;
+    endcase
+  endfunction : gen_nxt_adr_incr;
+
+
+  function automatic logic [HADDR_SIZE-1:0] gen_nxt_adr_wrap;
+    //Returns the next address for a wrapping burst
+    input [HADDR_SIZE -1:0] cur_adr;
+    input [HSIZE_SIZE -1:0] hsize;
+    input [HBURST_SIZE-1:0] hburst;
+
+    logic [HADDR_SIZE-1:0] mask;
+
+    //mask cur_adr
+    case (hburst)
+      HBURST_WRAP16: mask = { {HADDR_SIZE-4{1'b1}}, 4'h0};
+      HBURST_WRAP8 : mask = { {HADDR_SIZE-3{1'b1}}, 3'h0};
+      default      : mask = { {HADDR_SIZE-2{1'b1}}, 2'h0};
+    endcase
+
+    //mask depends on transfer size
+    case (hsize)
+       HSIZE_B1024: mask = mask << 64;
+       HSIZE_B512 : mask = mask << 32;
+       HSIZE_B256 : mask = mask << 16;
+       HSIZE_B128 : mask = mask <<  8;
+       HSIZE_DWORD: mask = mask <<  4;
+       HSIZE_WORD : mask = mask <<  2;
+       HSIZE_HWORD: mask = mask <<  1;
+       default    : mask = mask <<  0;
+    endcase
+
+    //nxt wrapped address
+    gen_nxt_adr_wrap = (cur_adr & mask) | (gen_nxt_adr_incr(cur_adr,hsize) & ~mask);
+  endfunction : gen_nxt_adr_wrap;
+
+
+  function automatic logic [HADDR_SIZE-1:0] gen_nxt_adr;
+    //returns next expected address
+    input [HADDR_SIZE -1:0] cur_adr;
+    input [HSIZE_SIZE -1:0] hsize;
+    input [HBURST_SIZE-1:0] hburst;
+
+    case (hburst)
+      HBURST_WRAP16: gen_nxt_adr = gen_nxt_adr_wrap(cur_adr, hsize, hburst);
+      HBURST_WRAP8 : gen_nxt_adr = gen_nxt_adr_wrap(cur_adr, hsize, hburst);
+      HBURST_WRAP4 : gen_nxt_adr = gen_nxt_adr_wrap(cur_adr, hsize, hburst);
+      default      : gen_nxt_adr = gen_nxt_adr_incr(cur_adr, hsize);
+    endcase
+
+  endfunction : gen_nxt_adr;
+
+
+  function automatic logic [HDATA_SIZE-1:0] gen_val;
     //Returns the new value for a register
     // if be[n] == '1' then gen_val[byte_n] = new_val[byte_n]
     // else                 gen_val[byte_n] = old_val[byte_n]
@@ -207,13 +275,13 @@ module ahb3lite_sram1rw #(
   //
 
   //AHB read/write cycle...
-  assign ahb_nosel = !HSEL || (HTRANS == HTRANS_IDLE);
+  assign ahb_noseq = !HSEL || (HTRANS == HTRANS_IDLE) || (HTRANS == HTRANS_NONSEQ);
   assign ahb_write = HSEL &  HWRITE & (HTRANS != HTRANS_BUSY) & (HTRANS != HTRANS_IDLE);
   assign ahb_read  = HSEL & ~HWRITE & (HTRANS != HTRANS_BUSY) & (HTRANS != HTRANS_IDLE);
 
   always @(posedge HCLK, negedge HRESETn)
-    if      (!HRESETn) was_ahb_nosel <= 1'b1;
-    else  was_ahb_nosel <= ahb_nosel;
+    if      (!HRESETn) was_ahb_noseq <= 1'b1;
+    else               was_ahb_noseq <= ahb_noseq;
 
 
   //generate internal write signal
@@ -227,7 +295,8 @@ module ahb3lite_sram1rw #(
     if (HREADY) be <= gen_be(HSIZE,HADDR);
 
   //read address
-  assign raddr = HADDR[MEM_ABITS_LSB +: MEM_ABITS];
+  assign nxt_adr = gen_nxt_adr(HADDR, HSIZE, HBURST);
+  assign raddr   = was_ahb_noseq ? HADDR[MEM_ABITS_LSB +: MEM_ABITS] : nxt_adr[MEM_ABITS_LSB +: MEM_ABITS];
 
   //store write address
   always @(posedge HCLK)
@@ -306,12 +375,12 @@ generate
   else
   begin
       always @(posedge HCLK,negedge HRESETn)
-        if      (!HRESETn                  ) HREADYOUT <= 1'b1;
-	else if ( was_ahb_nosel && ahb_read) HREADYOUT <= 1'b0;
-        else                                 HREADYOUT <= 1'b1;
+        if      (!HRESETn                          ) HREADYOUT <= 1'b1;
+	else if ( ahb_noseq && ahb_read & HREADYOUT) HREADYOUT <= 1'b0;
+        else                                         HREADYOUT <= 1'b1;
 
       always @(posedge HCLK)
-        if (HREADY) HRDATA <= contention ? dout_local : dout;
+        HRDATA <= contention ? dout_local : dout;
   end
 endgenerate
 
