@@ -118,7 +118,9 @@ module ahb3lite_sram1rw #(
   // Variables
   //
   logic                  ahb_write,
-                         ahb_read;
+                         ahb_read,
+                         ahb_nosel,
+			 was_ahb_nosel;
 
   logic                  we;
   logic [BE_SIZE   -1:0] be;
@@ -205,8 +207,13 @@ module ahb3lite_sram1rw #(
   //
 
   //AHB read/write cycle...
+  assign ahb_nosel = !HSEL || (HTRANS == HTRANS_IDLE);
   assign ahb_write = HSEL &  HWRITE & (HTRANS != HTRANS_BUSY) & (HTRANS != HTRANS_IDLE);
   assign ahb_read  = HSEL & ~HWRITE & (HTRANS != HTRANS_BUSY) & (HTRANS != HTRANS_IDLE);
+
+  always @(posedge HCLK, negedge HRESETn)
+    if      (!HRESETn) was_ahb_nosel <= 1'b1;
+    else  was_ahb_nosel <= ahb_nosel;
 
 
   //generate internal write signal
@@ -299,9 +306,9 @@ generate
   else
   begin
       always @(posedge HCLK,negedge HRESETn)
-        if (!HRESETn) HREADYOUT <= 1'b1;
-        else if (HTRANS == HTRANS_NONSEQ && !HWRITE) HREADYOUT <= 1'b0;
-             else                                    HREADYOUT <= 1'b1;
+        if      (!HRESETn                  ) HREADYOUT <= 1'b1;
+	else if ( was_ahb_nosel && ahb_read) HREADYOUT <= 1'b0;
+        else                                 HREADYOUT <= 1'b1;
 
       always @(posedge HCLK)
         if (HREADY) HRDATA <= contention ? dout_local : dout;
