@@ -296,7 +296,8 @@ module ahb3lite_sram1rw #(
 
   //read address
   assign nxt_adr = gen_nxt_adr(HADDR, HSIZE, HBURST);
-  assign raddr   = was_ahb_noseq ? HADDR[MEM_ABITS_LSB +: MEM_ABITS] : nxt_adr[MEM_ABITS_LSB +: MEM_ABITS];
+//  assign raddr   = was_ahb_noseq ? HADDR[MEM_ABITS_LSB +: MEM_ABITS] : nxt_adr[MEM_ABITS_LSB +: MEM_ABITS];
+  assign raddr = !was_ahb_noseq && !ahb_noseq ? nxt_adr[MEM_ABITS_LSB +: MEM_ABITS] : HADDR[MEM_ABITS_LSB +: MEM_ABITS]; 
 
   //store write address
   always @(posedge HCLK)
