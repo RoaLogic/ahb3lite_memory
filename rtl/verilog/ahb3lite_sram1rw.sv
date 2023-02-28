@@ -69,7 +69,9 @@
 // -FHDR-------------------------------------------------------------
 
 
-module ahb3lite_sram1rw #(
+module ahb3lite_sram1rw
+import ahb3lite_pkg::*;
+#(
   parameter MEM_SIZE          = 0,   //Memory in Bytes
   parameter MEM_DEPTH         = 256, //Memory depth
   parameter HADDR_SIZE        = 8,
@@ -103,8 +105,6 @@ module ahb3lite_sram1rw #(
   //
   // Constants
   //
-  import ahb3lite_pkg::*;
-
   localparam BE_SIZE        = (HDATA_SIZE+7)/8;
 
   localparam MEM_SIZE_DEPTH = 8*MEM_SIZE / HDATA_SIZE;
